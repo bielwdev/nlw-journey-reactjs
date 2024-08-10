@@ -1,7 +1,10 @@
 import { MapPin, Calendar, ArrowRight, UserRoundPlus, Settings2, X, AtSign, Plus, User, Mail } from 'lucide-react'
 import { useState, type FormEvent } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 export function CreateTripPage() {
+  const navigate = useNavigate()
+
   const [isGuestsInputOpen, setIsGuestsInputOpen] = useState(false)
   const [isGuestsModalOpen, setGuestsModalOpen] = useState(false)
   const [isConfirmTripModalOpen, setIsConfirmTripModalOpen] = useState(false)
@@ -60,6 +63,10 @@ export function CreateTripPage() {
     const newEmailList = emailsToInvite.filter(email => email !== emailToRemove)
 
     setEmailsToInvite(newEmailList)
+  }
+
+  function createTrip() {
+    navigate('/trips/123')
   }
 
   return (
@@ -163,7 +170,7 @@ export function CreateTripPage() {
                   placeholder="Digite o e-mail do convidado" className="bg-transparent text-lg placeholder-zinc-400 outline-none flex-1" />
               </div>
 
-              <button type='submit' className='bg-lime-300 text-lime-950 rounded-lg px-5 py-2 font-medium flex gap-2 items-center hover:bg-lime-400'>
+              <button onClick={createTrip} type='submit' className='bg-lime-300 text-lime-950 rounded-lg px-5 py-2 font-medium flex gap-2 items-center hover:bg-lime-400'>
                 Convidar
                 <Plus className='size-5' />
               </button>
@@ -205,7 +212,7 @@ export function CreateTripPage() {
                 placeholder="Seu e-mail pessoal" className="bg-transparent text-lg placeholder-zinc-400 outline-none flex-1" />
             </div>
 
-            <button type='submit' className='bg-lime-300 text-lime-950 rounded-lg px-5 h-11 font-medium flex gap-2 items-center hover:bg-lime-400 w-full justify-center'>
+            <button onClick={createTrip} type='submit' className='bg-lime-300 text-lime-950 rounded-lg px-5 h-11 font-medium flex gap-2 items-center hover:bg-lime-400 w-full justify-center'>
               Confirmar criação da viagem
             </button>
           </form>
