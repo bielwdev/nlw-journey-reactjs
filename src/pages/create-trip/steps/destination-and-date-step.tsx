@@ -21,7 +21,7 @@ export function DestinationAndDateStep({
 
             <div className='flex items-center gap-2'>
               <Calendar className='size-5 text-zinc-400' />
-              <input disabled={isGuestsInputOpen} type="text" placeholder="Quando?" className="bg-transparent text-lg placeholder-zinc-400 w-40 outline-none" />
+              <input disabled={isGuestsInputOpen} type="date" placeholder="Quando?" className="bg-transparent text-lg placeholder-zinc-400 w-40 outline-none" />
             </div>
 
             <div className='w-px h-6 bg-zinc-800'></div>
